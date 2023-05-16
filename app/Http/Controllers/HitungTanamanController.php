@@ -156,7 +156,7 @@ class HitungTanamanController extends Controller
         foreach ($tanaman_alternatif_array_mapping as $keyss => $valuess) {
             $alternatifs = [];
             foreach ($kekurangans as $keys => $values) {
-                echo $values;
+                // echo $values;
                 $alternatifs[] = $dataKriteria[$values];
             }
             $alternatifArrayMaping[$keyss] =  $alternatifs;
@@ -166,25 +166,28 @@ class HitungTanamanController extends Controller
         // $data_tanaman->kelembapan->where('id', 1);
 
         //sampai sini
-        $alternatifTanamanMapping = [];
-        foreach ($alternatifArrayMaping as $keys => $values) {
+        $alternatifTanamanMapping = array();
+        foreach ($alternatifArrayMaping as $keysAlt => $values) {
+
             foreach ($values as $keyss => $valuess) {
-                $alternatifTanaman = [];
-                $alternatifTanamanMapping[$keyss] = [
+                echo ($keysAlt);
+
+                $alternatifTanamanMapping[$keysAlt][] = [
+
                     'nama_alt' => $dataKriteriaNama[$valuess],
-                    'batas' => "antara " . $this->parsingDataBawah(TanamanData::where('id', $tanaman_alternatif[$keys])->first()->$valuess) . " dan " .
-                        $this->parsingDataAtas(TanamanData::where('id', $tanaman_alternatif[$keys])->first()->$valuess)
+                    'batas' => "antara " . $this->parsingDataBawah(TanamanData::where('id', $tanaman_alternatif[$keysAlt])->first()->$valuess) . " dan " .
+                        $this->parsingDataAtas(TanamanData::where('id', $tanaman_alternatif[$keysAlt])->first()->$valuess)
                 ];
             }
         }
         foreach ($tanaman_alternatifNama as $keys => $values) {
             $tanaman_alternatifNama[$keys] = [
                 'nama_tanaman' => $tanaman_alternatifNama[$keys],
-                'kriteria' => $alternatifTanamanMapping
+                'kriteria' => $alternatifTanamanMapping[$keys]
             ];
         }
 
-        dd($alternatifTanamanMapping);
+        dd($tanaman_alternatifNama);
 
 
 
