@@ -9,4 +9,11 @@ class TanamanData extends Model
 {
     use HasFactory;
     protected $table = 'tanaman_datas';
+
+    protected $fillable = [
+        'nama_tanaman',
+        'deskripsi_tanaman',
+        'kelembapan',
+        'intensitas_penyinaran'
+    ];
 }

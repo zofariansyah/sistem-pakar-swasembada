@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::post('/hitung-tanaman', [HitungTanamanController::class, 'hitung']);
+
+Route::get('/hasil', function () {
+    return view('hasil');
+});

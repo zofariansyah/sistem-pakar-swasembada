@@ -10,11 +10,21 @@ class HitungTanamanController extends Controller
     public function hitung(Request $request)
     {
 
-
+        $hasilOutputTanaman = "";
         $data_tanaman = TanamanData::all();
 
-        $skor_tanaman = [];
 
+
+        $skor_tanaman = [];
+        $dataKriteria = ['kelembapan', 'intensitas_penyinaran', 'curah_hujan', 'ph_tanah', 'suhu', 'ketinggian'];
+        $dataKriteriaNama = [
+            'kelembapan' => 'Kelembapan',
+            'intensitas_penyinaran' => 'Intensitas Penyinaran',
+            'curah_hujan' => 'Curah Hujan',
+            'ph_tanah' => 'PH Tanah',
+            'suhu' => 'Suhu',
+            'ketinggian' => 'Ketinggian'
+        ];
         $skor_tanaman_kelembapan = [];
         $skor_tanaman_intensitas_penyinaran = [];
         $skor_tanaman_curah_hujan = [];
@@ -23,7 +33,6 @@ class HitungTanamanController extends Controller
         $skor_tanaman_ketinggian = [];
 
         foreach ($data_tanaman as $key => $data) {
-
 
             if (
                 $this->commandIf('kelembapan', $request['kelembapan'], $data_tanaman[$key])
@@ -81,13 +90,127 @@ class HitungTanamanController extends Controller
             $skor_tanaman_suhu,
             $skor_tanaman_ketinggian
         ];
+        // dd($matriksTotal);
+        //hitung jumlah pembobotan setiap tanaman
 
-        dd($matriksTotal);
+
+
+        $bobotTanaman = [];
+        foreach ($data_tanaman as $keytanaman => $data) {
+            $jumlah[$keytanaman] = 0;
+            foreach ($matriksTotal as $row) {
+                if (isset($row[$keytanaman])) {
+                    $jumlah[$keytanaman] += $row[$keytanaman];
+                    $bobotTanaman[$keytanaman] = $jumlah[$keytanaman];
+                }
+            }
+        }
+
+        // untuk menentukan harus memenuhi semua kriteria
+        foreach ($bobotTanaman as $key => $data) {
+            if ($bobotTanaman[$key] == 5) {
+                $hasilOutputTanaman = $data_tanaman[$key]->id;
+            }
+        }
+
+        $nilai_terbesar = max($bobotTanaman);
+        $tanaman_alternatifTotal = [];
+        $tanaman_alternatif = array();
+        $tanaman_alternatif_array = array();
+        $tanaman_alternatifNama = array();
+        foreach ($bobotTanaman as $indeks => $nilai) {
+            if ($nilai == $nilai_terbesar) {
+
+                $tanaman_alternatif_array[] = $indeks;
+                $tanaman_alternatif[] = $data_tanaman[$indeks]->id;
+                $tanaman_alternatifNama[] = $data_tanaman[$indeks]->nama_tanaman;
+
+
+                $kekuranganTanamans = $data_tanaman;
+                // foreach ($dataKriteria as $keys => $values) {
+                //     $tanaman_alternatifTotal = [$tanaman_alternatif, $values[$kekurangan]];
+                // }
+            }
+        }
+
+
+
+        $tanaman_alternatif_array_mapping = [];
+        foreach ($tanaman_alternatif_array as $keya => $valuea) {
+            $kekurangans = [];
+            foreach ($matriksTotal as $key => $value) {
+                foreach ($value as $keys => $values) {
+                    if ($keys == $valuea && $values == 0) {
+                        $kekurangans[] = $key;
+                    }
+                };
+            };
+
+            $tanaman_alternatif_array_mapping[] = [$tanaman_alternatif_array[$keya], $kekurangans];
+        };
+
+        // $kekuranganTotal = array_map($tanaman_alternatif_array, $kekurangan);
+
+
+        $alternatifArrayMaping = [];
+        foreach ($tanaman_alternatif_array_mapping as $keyss => $valuess) {
+            $alternatifs = [];
+            foreach ($kekurangans as $keys => $values) {
+                echo $values;
+                $alternatifs[] = $dataKriteria[$values];
+            }
+            $alternatifArrayMaping[$keyss] =  $alternatifs;
+        }
+
+
+        // $data_tanaman->kelembapan->where('id', 1);
+
+        //sampai sini
+        $alternatifTanamanMapping = [];
+        foreach ($alternatifArrayMaping as $keys => $values) {
+            foreach ($values as $keyss => $valuess) {
+                $alternatifTanaman = [];
+                $alternatifTanamanMapping[$keyss] = [
+                    'nama_alt' => $dataKriteriaNama[$valuess],
+                    'batas' => "antara " . $this->parsingDataBawah(TanamanData::where('id', $tanaman_alternatif[$keys])->first()->$valuess) . " dan " .
+                        $this->parsingDataAtas(TanamanData::where('id', $tanaman_alternatif[$keys])->first()->$valuess)
+                ];
+            }
+        }
+        foreach ($tanaman_alternatifNama as $keys => $values) {
+            $tanaman_alternatifNama[$keys] = [
+                'nama_tanaman' => $tanaman_alternatifNama[$keys],
+                'kriteria' => $alternatifTanamanMapping
+            ];
+        }
+
+        dd($alternatifTanamanMapping);
+
+
+
+
+        $kekuranganKriteriaAlternatif = [];
+
+
+        $dataTanamanAlternatif = [
+            $tanaman_alternatifNama,
+            [
+                []
+            ],
+
+        ];
+
+        $returnView = [
+            'tanamanValid' => $hasilOutputTanaman,
+            // 'tanamanAlternatif' => ,
+        ];
+
+        return view('hasil', $returnView);
     }
 
     public function commandIf($data, $request, $data_tanaman)
     {
-
+        // return untuk fungsi if biar tidak mengulang dengan pola
         return $request <= $this->parsingDataAtas($data_tanaman->$data)
             && $request >= $this->parsingDataBawah(
                 $data_tanaman->$data
