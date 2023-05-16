@@ -584,11 +584,11 @@
                                                     <div class="mb-1 mt-1">
                                                         <input type="number" class="form-control"
                                                             placeholder="Intensitas Penyinaran"
-                                                            name="intensitas-penyinaran">
+                                                            name="intensitas_penyinaran">
                                                     </div>
                                                     <div class="mb-1 mt-1">
                                                         <input type="number" class="form-control"
-                                                            placeholder="Curah Hujan" name="curah-hujan">
+                                                            placeholder="Curah Hujan" name="curah_hujan">
                                                     </div>
                                                     <div class="mb-1 mt-1">
                                                         <input type="number" class="form-control" placeholder="PH Tanah"

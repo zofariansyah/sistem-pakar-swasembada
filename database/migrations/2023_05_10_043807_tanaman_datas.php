@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('nama_tanaman');
             $table->text('deskripsi_tanaman');
-            $table->string('kelembapan');
-            $table->string('intensitas_penyinaran');
-            $table->string('curah_hujan');
-            $table->string('ph_tanah');
-            $table->string('suhu');
-            $table->string('ketinggian');
+            $table->json('kelembapan');
+            $table->json('intensitas_penyinaran');
+            $table->json('curah_hujan');
+            $table->json('ph_tanah');
+            $table->json('suhu');
+            $table->json('ketinggian');
             $table->timestamps();
         });
     }
