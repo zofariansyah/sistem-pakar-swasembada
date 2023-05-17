@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HitungTanamanController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,16 @@ Route::get('/', function () {
 });
 
 Route::post('/hitung-tanaman', [HitungTanamanController::class, 'hitung']);
+
+
+Route::middleware(['autentikasi'])->group(function () {
+    Route::get('/dashboard', [DashboardAdminController::class, 'index']);
+});
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/masuk', [AuthController::class, 'masuk'])->name('masuk');
+    Route::post('/masuk', [AuthController::class, 'masukdashboard']);
+});
 
 Route::get('/hasil', function () {
     return view('hasil');

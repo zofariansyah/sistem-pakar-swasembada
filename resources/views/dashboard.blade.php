@@ -33,7 +33,7 @@
     <link href={{ asset('assets/css/nucleo-svg.css') }} rel="stylesheet" />
 
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
+    <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -542,101 +542,157 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-lg-12 mb-lg-0 mb-4">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="d-flex flex-column h-100">
-                                        <p class="mb-1 pt-2 text-bold">Input</p>
-                                        <h5 class="font-weight-bolder">Cek</h5>
-                                        <form role="form text-left" method="POST" action="/hitung-tanaman">
-                                            @csrf
-                                            <div class="row ">
-                                                <div class="col-4 ">
-                                                    <div class="mb-1 mt-1">
-                                                        <p>Kelembapan</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>Intensitas Penyinaran</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>Curah Hujan</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>PH Tanah</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>Suhu</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>Ketinggian</p>
-                                                    </div>
-                                                </div>
+            <div class="container-fluid py-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4">
+                            <div class="card-header pb-0">
+                                <h6>Authors table</h6>
+                            </div>
+                            <div class="card-body px-0 pt-0 pb-2">
+                                <div class="table-responsive p-0">
+                                    <table class="table align-items-center mb-0">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th
+                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">
+                                                    Nama Tanaman</th>
+                                                <th
+                                                    class="col-4 text-center  text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    Deskripsi Tanaman</th>
+
+                                                <th
+                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                    Kelembapan</th>
+                                                <th
+                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                    Int.Penyinaran</th>
+                                                <th
+                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                    Cur. Hujan</th>
+                                                <th
+                                                    class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                                    PH Tanah</th>
+                                                <th
+                                                    class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                                    Suhu</th>
+                                                <th
+                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                    Ketinggian</th>
+                                                <th class="col-1 text-secondary  opacity-7 ps-1"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="align-middle text-center">
+                                                    <h6 class="mb-0 text-xs">John Michael</h6>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">Manager</p>
+                                                    <p class="text-xs text-secondary mb-0">Organization</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
+                                                </td>
+                                                <td class="align-middle text-center">
 
 
-                                                <div class="col-6">
-                                                    <div class=" mb-1 mt-1">
-                                                        <input type="number" class="form-control"
-                                                            placeholder="Kelembapan" name="kelembapan">
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <input type="number" class="form-control"
-                                                            placeholder="Intensitas Penyinaran"
-                                                            name="intensitas_penyinaran">
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <input type="number" class="form-control"
-                                                            placeholder="Curah Hujan" name="curah_hujan">
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <input type="number" class="form-control" placeholder="PH Tanah"
-                                                            name="ph_tanah">
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <input type="number" class="form-control" placeholder="Suhu"
-                                                            name="suhu">
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <input type="number" class="form-control"
-                                                            placeholder="Ketinggian" name="ketinggian">
-                                                    </div>
-                                                </div>
-                                                <div class="col-2">
-                                                    <div class="mb-1 mt-1">
-                                                        <p>%</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>jam/hari</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>mm/bulan</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>k</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>Celcius</p>
-                                                    </div>
-                                                    <div class="mb-1 mt-1">
-                                                        <p>mdpl</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Cari
-                                                    Tanaman</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                                    <a href=" javascript:;"
+                                                        class="text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                        <span class="badge badge-sm bg-gradient-warning">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor" class="bi bi-pen"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+
+
+                                                    <a href=" javascript:;"
+                                                        class="text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                        <span class="badge badge-sm bg-gradient-danger">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor" class="bi bi-trash"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                                                                <path
+                                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+
+
+
+
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <footer class="footer pt-3  ">
+                    <div class="container-fluid">
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-lg-6 mb-lg-0 mb-4">
+                                <div class="copyright text-center text-sm text-muted text-lg-start">
+                                    © <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>,
+                                    made with <i class="fa fa-heart"></i> by
+                                    <a href="https://www.creative-tim.com" class="font-weight-bold"
+                                        target="_blank">Creative
+                                        Tim</a>
+                                    for a better web.
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                    <li class="nav-item">
+                                        <a href="https://www.creative-tim.com" class="nav-link text-muted"
+                                            target="_blank">Creative Tim</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted"
+                                            target="_blank">About Us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="https://www.creative-tim.com/blog" class="nav-link text-muted"
+                                            target="_blank">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted"
+                                            target="_blank">License</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
 
             <footer class="footer pt-3  ">
@@ -768,7 +824,6 @@
     <script src={{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}></script>
     <script src={{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}></script>
     <script src={{ asset('assets/js/plugins/chartjs.min.js') }}></script>
-    <script src="{{ asset('assets/js/soft-ui-dashboard.min.js?v=1.0.7') }}"></script>
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -952,7 +1007,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-
+    <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
 </body>
 
 </html>
