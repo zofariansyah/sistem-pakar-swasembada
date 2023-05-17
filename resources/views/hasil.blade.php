@@ -548,6 +548,21 @@
                         <div class="card-body p-3">
                             <div class="m-4">
                                 <div class="text-center">
+                                    @if ($adaTanaman)
+                                    <h2>Tanaman</h2>
+                                    <h6>Berdasarkan data yang kamu berikan, berikut tanaman yang cocok di tempat kamu
+                                    </h6>
+                                    <p>Kamu bisa menanam tanaman berikut ini</p>
+                                    <div class="mt-5">
+                                        @foreach ($tanaman as $item)
+                                        <p class="text-info">{{ $item }}</p>
+                                        @endforeach
+
+
+                                    </div>
+                                </div>
+                                @else
+                                <div class="text-center">
                                     <h2>Tanaman</h2>
                                     <h6>Kami tidak menemukan tanaman yang cocok untuk daerahmu, sebagai alternatif. Kami
                                         menyediakan pilihan untuk tanaman berikut ini berdasarkan hasil yang kamu
@@ -556,19 +571,28 @@
                                     <p>Perlu diingat kamu perlu menyesuaikan beberapa ketentuan berikut agar tanaman
                                         bisa
                                         tumbuh dengan baik</p>
-                                    <div class="mt-5">
+                                    <div class="mt-2">
 
+                                        @foreach ($tanaman as $item)
+                                        <div class="mb-4">
+                                            <p class="text-info">{{ $item['nama_tanaman'] }}</p>
+                                            @foreach ($item['kriteria'] as $key=>$kriteria)
+                                            <div class="row">
+                                                <div class="col-sm">{{ $kriteria['nama_alt'] }}</div>
 
-                                        <p class="text-info">Judul</p>
-                                        <div class="row">
-                                            <div class="col-sm">Ketinggian</div>
-
-                                            <div class="col-sm">
-                                                Harus di antara sekian dan sekian
+                                                <div class="col-sm">
+                                                    {{ $kriteria['batas'] }}
+                                                </div>
                                             </div>
+                                            @endforeach
+
                                         </div>
+                                        @endforeach
+
                                     </div>
                                 </div>
+                                @endif
+
 
 
                             </div>

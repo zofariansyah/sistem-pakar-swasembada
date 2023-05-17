@@ -592,7 +592,7 @@
                                                     </div>
                                                     <div class="mb-1 mt-1">
                                                         <input type="number" class="form-control" placeholder="PH Tanah"
-                                                            name="ph-tanah">
+                                                            name="ph_tanah">
                                                     </div>
                                                     <div class="mb-1 mt-1">
                                                         <input type="number" class="form-control" placeholder="Suhu"
