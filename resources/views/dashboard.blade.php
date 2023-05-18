@@ -29,6 +29,7 @@
     <link href={{ asset('assets/css/nucleo-icons.css') }} rel="stylesheet" />
     <link href={{ asset('assets/css/nucleo-svg.css') }} rel="stylesheet" />
     <link href={{ asset('assets/css/custom.css') }} rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Font Awesome Icons -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -450,6 +451,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- End Navbar -->
         <div class="container-fluid py-4">
 
@@ -459,21 +461,16 @@
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-12">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
-                                        <h5 class="font-weight-bolder mb-0">
-                                            $53,000
-                                            <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        </h5>
+                                        <div class="col-12 text-center">
+                                            <a class="btn bg-gradient-dark mb-0" data-bs-toggle="modal"
+                                                data-bs-target="#tambah" href="javascript:;"><i
+                                                    class="fas fa-plus"></i>&nbsp;&nbsp;Add New Card</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4 text-end">
-                                    <div
-                                        class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                        <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -552,7 +549,7 @@
                 <div class="row">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <h6>Authors table</h6>
+                            <h6>Data Tanaman</h6>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -637,29 +634,87 @@
                                                     </div>
                                                     <div>
                                                         <a class="btn btn-link text-danger text-gradient px-3 mb-0"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#hapus{{ $data['id'] }}"
                                                             href="javascript:;"><i
-                                                                class="far fa-trash-alt me-2"></i>Delete</a>
+                                                                class="far fa-trash-alt me-2"></i>Hapus</a>
                                                     </div>
 
 
                                                 </div>
                                             </td>
                                         </tr>
-                                        <div class="modal" id="edit{{ $data['id'] }}">
+                                        <div class="modal fade" id="hapus{{ $data['id'] }}" tabindex="-1"
+                                            aria-labelledby="hapusModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <!-- Konten modal di sini -->
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Edit Data</h5>
-                                                        <button type="button" class="close"
-                                                            data-bs-dismiss="modal">&times;</button>
+                                                        <h5 class="modal-title" id="hapusModalLabel">Konfirmasi
+                                                            Penghapusan</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Tutup"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form role="form text-left" method="POST"
-                                                            action="/ubah-tanaman">
+                                                        <p>Apakah Anda yakin ingin menghapus data ini?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Batal</button>
+                                                        <form
+                                                            action="{{ route('delete-tanaman', $data['id_encrypt']) }}"
+                                                            method="POST">
                                                             @csrf
-                                                            <div class="row ">
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                        <div class="modal" id="edit{{ $data['id'] }}">
+                                            <div class="modal-dialog">
+                                                <form role="form text-left" method="POST" action="/ubah-tanaman">
+                                                    <div class="modal-content">
+                                                        <!-- Konten modal di sini -->
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Edit Data</h5>
+                                                            <button type="button" class="close"
+                                                                data-bs-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <input type="hidden" class="form-control"
+                                                                placeholder="Kelembapan" name="id"
+                                                                value="{{ $data['id'] }}">
+
+                                                            @csrf
+
+                                                            <div class="row ">
+                                                                <div class="mb-1 mt-1">
+
+                                                                    <p
+                                                                        class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                                                        Nama Tanaman</p>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Nama Tanaman" name="nama_tanaman"
+                                                                        value="{{ $data['nama'] }}">
+
+
+
+                                                                </div>
+                                                                <div class="mb-1 mt-1">
+
+                                                                    <p
+                                                                        class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                                                        Deskripsi Tanaman</p>
+                                                                    <textarea type="" class="form-control"
+                                                                        placeholder="Deskripsi"
+                                                                        name="deskripsi_tanaman">{{ $data['deskripsi'] }}</textarea>
+
+
+
+                                                                </div>
                                                                 <div class="mb-1 mt-1">
 
                                                                     <p
@@ -703,7 +758,7 @@
                                                                         <div class="col-4">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="Intensitas Penyinaran"
-                                                                                name="intensitas_penyinaran_bawah "
+                                                                                name="intensitas_penyinaran_bawah"
                                                                                 value="{{ $data['intensitas_penyinaran_bawah'] }}">
                                                                         </div>
                                                                         <p class="text-center col-1  my-auto">
@@ -711,7 +766,7 @@
                                                                         <div class="col-4">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="Intensitas Penyinaran"
-                                                                                name="intensitas_penyinaran_atas "
+                                                                                name="intensitas_penyinaran_atas"
                                                                                 value="{{ $data['intensitas_penyinaran_atas'] }}">
                                                                         </div>
                                                                         <div
@@ -862,15 +917,16 @@
 
                                                             </div>
 
-                                                        </form>
 
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Tutup</button>
+                                                            <button type="submit" class="btn btn-primary">Ubah</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Tutup</button>
-                                                        <button type="button" class="btn btn-primary">Ubah</button>
-                                                    </div>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                         @endforeach
@@ -921,9 +977,217 @@
                 </footer>
             </div>
         </div>
+
     </main>
+
+    <div class="modal" id="tambah">
+        <div class="modal-dialog">
+            <form role="form text-left" method="POST" action="/tambah-tanaman">
+                <div class="modal-content">
+                    <!-- Konten modal di sini -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambah Data</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <input type="hidden" class="form-control" placeholder="Kelembapan" name="id">
+
+                        @csrf
+
+                        <div class="row ">
+                            <div class="mb-1 mt-1">
+
+                                <p class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                    Nama Tanaman</p>
+                                <input type="text" class="form-control" placeholder="Nama Tanaman" name="nama_tanaman">
+
+
+
+                            </div>
+                            <div class="mb-1 mt-1">
+
+                                <p class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                    Deskripsi Tanaman</p>
+                                <textarea type="" class="form-control" placeholder="Deskripsi"
+                                    name="deskripsi_tanaman"></textarea>
+
+
+
+                            </div>
+                            <div class="mb-1 mt-1">
+
+                                <p class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                    Kelembapan</p>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <input type="number" class="form-control" placeholder="Kelembapan"
+                                            name="kelembapan_bawah" ">
+                                    </div>
+                                    <p class=" text-center col-1 my-auto">
+                                        -</p>
+                                        <div class="col-4">
+                                            <input type="number" class="form-control" placeholder="Kelembapan"
+                                                name="kelembapan_atas">
+                                        </div>
+                                        <div class="col-2 text-center d-flex align-items-center  my-auto">
+                                            <div class="mb-1 mt-1">
+                                                <p class="text-xs d-flex align-items-center  my-auto">
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="mb-1 mt-1">
+                                    <p class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                        Intensitas Penyinaran</p>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <input type="number" class="form-control"
+                                                placeholder="Intensitas Penyinaran" name="intensitas_penyinaran_bawah" ">
+                                    </div>
+                                    <p class=" text-center col-1 my-auto">
+                                            -</p>
+                                            <div class="col-4">
+                                                <input type="number" class="form-control"
+                                                    placeholder="Intensitas Penyinaran"
+                                                    name="intensitas_penyinaran_atas">
+                                            </div>
+                                            <div class="col-2 text-center d-flex align-items-center  my-auto">
+                                                <div class="mb-1 mt-1">
+                                                    <p class="text-xs d-flex align-items-center  my-auto">
+                                                        %</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="mb-1 mt-1">
+                                        <p class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                            Curah Hujan</p>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" placeholder="Curah Hujan"
+                                                    name="curah_hujan_bawah">
+                                            </div>
+                                            <p class="text-center col-1  my-auto">
+                                                -</p>
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" placeholder="Curah Hujan"
+                                                    name="curah_hujan_atas">
+                                            </div>
+                                            <div class="col-2 text-center d-flex align-items-center  my-auto">
+                                                <div class="mb-1 mt-1">
+                                                    <p class="text-xs d-flex align-items-center  my-auto">
+                                                        jam/hari
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="mb-1 mt-1">
+                                        <p class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                            PH Tanah</p>
+
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <input type="text" class="form-control" placeholder="PH Tanah"
+                                                    name="ph_tanah_bawah" id="ph_tanah">
+                                            </div>
+                                            <p class="text-center col-1  my-auto">
+                                                -</p>
+                                            <div class="col-4">
+                                                <input type="text" class="form-control" placeholder="PH Tanah"
+                                                    name="ph_tanah_atas" id="ph_tanah">
+                                            </div>
+                                            <div class="col-2 text-center d-flex align-items-center  my-auto">
+                                                <div class="mb-1 mt-1">
+                                                    <p class="text-xs d-flex align-items-center  my-auto">
+                                                        mm/bulan</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="mb-1 mt-1">
+                                        <p class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                            Suhu</p>
+                                        <div class="row text-center">
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" placeholder="Suhu"
+                                                    name="suhu_bawah">
+                                            </div>
+                                            <p class="text-center col-1  my-auto">
+                                                -</p>
+
+                                            <div class="col-4 text-center ">
+                                                <input type="number" class="form-control" placeholder="Suhu"
+                                                    name="suhu_atas">
+                                            </div>
+                                            <div class="col-3 text-center d-flex align-items-center  my-auto">
+                                                <div class="mb-1 mt-1">
+                                                    <p class="text-xs d-flex align-items-center  my-auto">
+                                                        Celcius</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="mb-1 mt-1">
+                                        <p class="text-xs d-flex align-items-center mb-2 mt-2  my-auto">
+                                            Ketinggian</p>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" placeholder="Ketinggian"
+                                                    name="ketinggian_bawah">
+                                            </div>
+                                            <p class="text-center col-1  my-auto">
+                                                -</p>
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" placeholder="Ketinggian"
+                                                    name="ketinggian_atas">
+                                            </div>
+                                            <div class="col-2 text-center d-flex align-items-center  my-auto">
+                                                <div class="mb-1 mt-1">
+                                                    <p class="text-xs d-flex align-items-center  my-auto">
+                                                        mdpl</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
+                            </div>
+                        </div>
+            </form>
+        </div>
+    </div>
+
     <div class="fixed-plugin">
-        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+        <a class="F-button text-dark position-fixed px-3 py-2">
             <i class="fa fa-cog py-2"> </i>
         </a>
         <div class="card shadow-lg ">
@@ -1004,16 +1268,19 @@
             </div>
         </div>
     </div>
+
+
     <script>
         // Menerapkan validasi untuk input desimal
-    document.getElementById('ph_tanah').addEventListener('input', function() {
-        this.value = this.value.replace(/[^0-9.]/g, ''); // Hanya membiarkan angka dan tanda desimal
-    });
+        document.getElementById('ph_tanah').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9.]/g, ''); // Hanya membiarkan angka dan tanda desimal
+        });
     </script>
 
-    <!--   Core JS Files   -->
-    {{--
-    <link href={{ asset('assets/css/nucleo-svg.css') }} rel="stylesheet" /> --}}
+    <!-- Memuat library Toastr sebelum penggunaannya -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Core JS Files -->
     <script src={{ asset('assets/js/core/popper.min.js') }}></script>
     <script src={{ asset('assets/js/core/bootstrap.min.js') }}></script>
     <!-- Tautan ke file JavaScript Bootstrap -->
@@ -1022,20 +1289,43 @@
     <script src={{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}></script>
     <script src={{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}></script>
     <script src={{ asset('assets/js/plugins/chartjs.min.js') }}></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
     </script>
+
+    <script>
+        @if(Session::has('success'))
+        Swal.fire(
+             "Sukses",
+             "{{ Session::get('success') }}",
+             "success",
+            )
+        @endif
+        toastr.success('Data has been saved successfully!', 'Congrats');
+        // toastr.success('Have fun storming the castle!')
+        // @if(session('success'))
+        // toastr.success('{{ session('success') }}', 'success', {
+        //     positionClass: 'toast-top-right',
+        //     closeButton: true,
+        //     timeOut: 5000
+        // });
+        // @endif
+    </script>
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+
 </body>
 
 </html>
