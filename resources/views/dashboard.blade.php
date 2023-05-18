@@ -28,8 +28,11 @@
     <!-- Nucleo Icons -->
     <link href={{ asset('assets/css/nucleo-icons.css') }} rel="stylesheet" />
     <link href={{ asset('assets/css/nucleo-svg.css') }} rel="stylesheet" />
+    <link href={{ asset('assets/css/custom.css') }} rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <link href={{ asset('assets/css/nucleo-svg.css') }} rel="stylesheet" />
 
     <!-- CSS Files -->
@@ -40,6 +43,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
+
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
         id="sidenav-main">
         <div class="sidenav-header">
@@ -448,6 +452,8 @@
         </nav>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
+
+
             <div class="row">
                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
@@ -544,112 +550,332 @@
             </div>
             <div class="container-fluid py-4">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card mb-4">
-                            <div class="card-header pb-0">
-                                <h6>Authors table</h6>
-                            </div>
-                            <div class="card-body px-0 pt-0 pb-2">
-                                <div class="table-responsive p-0">
-                                    <table class="table align-items-center mb-0">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th
-                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">
-                                                    Nama Tanaman</th>
-                                                <th
-                                                    class="col-4 text-center  text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    Deskripsi Tanaman</th>
+                    <div class="card mb-4">
+                        <div class="card-header pb-0">
+                            <h6>Authors table</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table class="table-wrap table align-items-center mb-0">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th
+                                                class="col-0 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7">
+                                                Nama Tanaman</th>
+                                            <th
+                                                class="table-wrap col-5 text-center  text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Deskripsi Tanaman</th>
 
-                                                <th
-                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
-                                                    Kelembapan</th>
-                                                <th
-                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
-                                                    Int.Penyinaran</th>
-                                                <th
-                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
-                                                    Cur. Hujan</th>
-                                                <th
-                                                    class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
-                                                    PH Tanah</th>
-                                                <th
-                                                    class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
-                                                    Suhu</th>
-                                                <th
-                                                    class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
-                                                    Ketinggian</th>
-                                                <th class="col-1 text-secondary  opacity-7 ps-1"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="align-middle text-center">
-                                                    <h6 class="mb-0 text-xs">John Michael</h6>
-                                                </td>
-                                                <td>
-                                                    <p class="text-xs font-weight-bold mb-0">Manager</p>
-                                                    <p class="text-xs text-secondary mb-0">Organization</p>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">1-20</span>
-                                                </td>
-                                                <td class="align-middle text-center">
+                                            <th
+                                                class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                Kelembapan</th>
+                                            <th
+                                                class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                Int.Penyinaran</th>
+                                            <th
+                                                class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                Cur. Hujan</th>
+                                            <th
+                                                class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                                PH Tanah</th>
+                                            <th
+                                                class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                                Suhu</th>
+                                            <th
+                                                class="col-1 text-center text-uppercase text-secondary text-xxs  font-weight-bolder opacity-7 ">
+                                                Ketinggian</th>
+                                            <th class="col-1 text-secondary  opacity-7 ps-1"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data_tanaman as $data)
 
 
-                                                    <a href=" javascript:;"
-                                                        class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
-                                                        <span class="badge badge-sm bg-gradient-warning">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-pen"
-                                                                viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
-                                                            </svg>
-                                                        </span>
-                                                    </a>
+                                        <tr class="">
+                                            <td class="align-middle text-left p-3">
+                                                <h6 class="mb-0 text-xs">{{ $data['nama'] }}</h6>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+
+                                                <p class="wrap-column text-xs text-secondary mb-0  ">
+                                                    {{$data['deskripsi']}}
+                                                </p>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{$data['kelembapan']}}</span>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{$data['intensitas_penyinaran']}}</span>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{$data['curah_hujan']}}</span>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{$data['ph_tanah']}}</span>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{$data['suhu']}}</span>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{$data['ketinggian']}}</span>
+                                            </td>
+                                            <td class="align-middle text-center p-3">
+                                                <div class="ms-auto text-center">
+                                                    <div>
+                                                        <a class="btn btn-link text-dark px-3 mb-0"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#edit{{ $data['id'] }}"
+                                                            href="javascript:;"><i
+                                                                class="fas fa-pencil-alt text-dark me-2"
+                                                                aria-hidden="true"></i>Edit</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="btn btn-link text-danger text-gradient px-3 mb-0"
+                                                            href="javascript:;"><i
+                                                                class="far fa-trash-alt me-2"></i>Delete</a>
+                                                    </div>
 
 
-                                                    <a href=" javascript:;"
-                                                        class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
-                                                        <span class="badge badge-sm bg-gradient-danger">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-trash"
-                                                                viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
-                                                                <path
-                                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
-                                                            </svg>
-                                                        </span>
-                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <div class="modal" id="edit{{ $data['id'] }}">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Konten modal di sini -->
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Edit Data</h5>
+                                                        <button type="button" class="close"
+                                                            data-bs-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form role="form text-left" method="POST"
+                                                            action="/ubah-tanaman">
+                                                            @csrf
+                                                            <div class="row ">
+
+                                                                <div class="mb-1 mt-1">
+
+                                                                    <p
+                                                                        class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                                                        Kelembapan</p>
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Kelembapan"
+                                                                                name="kelembapan_bawah"
+                                                                                value="{{ $data['kelembapan_bawah'] }}">
+                                                                        </div>
+                                                                        <p class="text-center col-1  my-auto">
+                                                                            -</p>
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Kelembapan"
+                                                                                name="kelembapan_atas" value="{{
+                                                                                $data['kelembapan_atas'] }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-2 text-center d-flex align-items-center  my-auto">
+                                                                            <div class="mb-1 mt-1">
+                                                                                <p
+                                                                                    class="text-xs d-flex align-items-center  my-auto">
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <div class="mb-1 mt-1">
+                                                                    <p
+                                                                        class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                                                        Intensitas Penyinaran</p>
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Intensitas Penyinaran"
+                                                                                name="intensitas_penyinaran_bawah "
+                                                                                value="{{ $data['intensitas_penyinaran_bawah'] }}">
+                                                                        </div>
+                                                                        <p class="text-center col-1  my-auto">
+                                                                            -</p>
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Intensitas Penyinaran"
+                                                                                name="intensitas_penyinaran_atas "
+                                                                                value="{{ $data['intensitas_penyinaran_atas'] }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-2 text-center d-flex align-items-center  my-auto">
+                                                                            <div class="mb-1 mt-1">
+                                                                                <p
+                                                                                    class="text-xs d-flex align-items-center  my-auto">
+                                                                                    %</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="mb-1 mt-1">
+                                                                    <p
+                                                                        class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                                                        Curah Hujan</p>
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Curah Hujan"
+                                                                                name="curah_hujan_bawah" value="{{
+                                                                                $data['curah_hujan_bawah'] }}">
+                                                                        </div>
+                                                                        <p class="text-center col-1  my-auto">
+                                                                            -</p>
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Curah Hujan"
+                                                                                name="curah_hujan_atas" value="{{
+                                                                                $data['curah_hujan_atas'] }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-2 text-center d-flex align-items-center  my-auto">
+                                                                            <div class="mb-1 mt-1">
+                                                                                <p
+                                                                                    class="text-xs d-flex align-items-center  my-auto">
+                                                                                    jam/hari
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="mb-1 mt-1">
+                                                                    <p
+                                                                        class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                                                        PH Tanah</p>
+
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="PH Tanah"
+                                                                                name="ph_tanah_bawah" id="ph_tanah"
+                                                                                value="{{
+                                                                                $data['ph_tanah_bawah'] }}">
+                                                                        </div>
+                                                                        <p class="text-center col-1  my-auto">
+                                                                            -</p>
+                                                                        <div class="col-4">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="PH Tanah"
+                                                                                name="ph_tanah_atas" id="ph_tanah"
+                                                                                value="{{
+                                                                                $data['ph_tanah_atas'] }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-2 text-center d-flex align-items-center  my-auto">
+                                                                            <div class="mb-1 mt-1">
+                                                                                <p
+                                                                                    class="text-xs d-flex align-items-center  my-auto">
+                                                                                    mm/bulan</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="mb-1 mt-1">
+                                                                    <p
+                                                                        class="text-xs d-flex align-items-center mb-2 mt-2 my-auto">
+                                                                        Suhu</p>
+                                                                    <div class="row text-center">
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Suhu" name="suhu_bawah"
+                                                                                value="{{
+                                                                                $data['suhu_bawah'] }}">
+                                                                        </div>
+                                                                        <p class="text-center col-1  my-auto">
+                                                                            -</p>
+
+                                                                        <div class="col-4 text-center ">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Suhu" name="suhu_atas"
+                                                                                value="{{
+                                                                                $data['suhu_atas'] }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-3 text-center d-flex align-items-center  my-auto">
+                                                                            <div class="mb-1 mt-1">
+                                                                                <p
+                                                                                    class="text-xs d-flex align-items-center  my-auto">
+                                                                                    Celcius</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="mb-1 mt-1">
+                                                                    <p
+                                                                        class="text-xs d-flex align-items-center mb-2 mt-2  my-auto">
+                                                                        Ketinggian</p>
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Ketinggian"
+                                                                                name="ketinggian_bawah" value="{{
+                                                                                $data['ketinggian_bawah'] }}">
+                                                                        </div>
+                                                                        <p class="text-center col-1  my-auto">
+                                                                            -</p>
+                                                                        <div class="col-4">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Ketinggian"
+                                                                                name="ketinggian_atas" value="{{
+                                                                                $data['ketinggian_atas'] }}">
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-2 text-center d-flex align-items-center  my-auto">
+                                                                            <div class="mb-1 mt-1">
+                                                                                <p
+                                                                                    class="text-xs d-flex align-items-center  my-auto">
+                                                                                    mdpl</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
 
 
 
 
-                                                </td>
-                                            </tr>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                            </div>
+
+                                                        </form>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Tutup</button>
+                                                        <button type="button" class="btn btn-primary">Ubah</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -694,44 +920,6 @@
                     </div>
                 </footer>
             </div>
-
-            <footer class="footer pt-3  ">
-                <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-6 mb-lg-0 mb-4">
-                            <div class="copyright text-center text-sm text-muted text-lg-start">
-                                © <script>
-                                    document.write(new Date().getFullYear())
-                                </script>,
-                                made with <i class="fa fa-heart"></i> by
-                                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative
-                                    Tim</a>
-                                for a better web.
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com" class="nav-link text-muted"
-                                        target="_blank">Creative Tim</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted"
-                                        target="_blank">About Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/blog" class="nav-link text-muted"
-                                        target="_blank">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted"
-                                        target="_blank">License</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </main>
     <div class="fixed-plugin">
@@ -816,185 +1004,25 @@
             </div>
         </div>
     </div>
+    <script>
+        // Menerapkan validasi untuk input desimal
+    document.getElementById('ph_tanah').addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9.]/g, ''); // Hanya membiarkan angka dan tanda desimal
+    });
+    </script>
+
     <!--   Core JS Files   -->
     {{--
     <link href={{ asset('assets/css/nucleo-svg.css') }} rel="stylesheet" /> --}}
     <script src={{ asset('assets/js/core/popper.min.js') }}></script>
     <script src={{ asset('assets/js/core/bootstrap.min.js') }}></script>
+    <!-- Tautan ke file JavaScript Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+
     <script src={{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}></script>
     <script src={{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}></script>
     <script src={{ asset('assets/js/plugins/chartjs.min.js') }}></script>
 
-    <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
-
-    new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [{
-          label: "Sales",
-          tension: 0.4,
-          borderWidth: 0,
-          borderRadius: 4,
-          borderSkipped: false,
-          backgroundColor: "#fff",
-          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-          maxBarThickness: 6
-        }, ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-            },
-            ticks: {
-              suggestedMin: 0,
-              suggestedMax: 500,
-              beginAtZero: true,
-              padding: 15,
-              font: {
-                size: 14,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-              color: "#fff"
-            },
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false
-            },
-            ticks: {
-              display: false
-            },
-          },
-        },
-      },
-    });
-
-
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-    new Chart(ctx2, {
-      type: "line",
-      data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [{
-            label: "Mobile apps",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#cb0c9f",
-            borderWidth: 3,
-            backgroundColor: gradientStroke1,
-            fill: true,
-            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-            maxBarThickness: 6
-
-          },
-          {
-            label: "Websites",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#3A416F",
-            borderWidth: 3,
-            backgroundColor: gradientStroke2,
-            fill: true,
-            data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-            maxBarThickness: 6
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-              borderDash: [5, 5]
-            },
-            ticks: {
-              display: true,
-              padding: 10,
-              color: '#b2b9bf',
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-            }
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [5, 5]
-            },
-            ticks: {
-              display: true,
-              color: '#b2b9bf',
-              padding: 20,
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-            }
-          },
-        },
-      },
-    });
-    </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

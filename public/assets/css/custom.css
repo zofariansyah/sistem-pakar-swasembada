@@ -1,0 +1,15 @@
+.table-wrap td {
+    /* word-break: break-word; */
+    /* Sesuaikan dengan lebar maksimum yang diinginkan */
+}
+
+.table-wrap .wrap-column {
+    white-space: normal;
+    word-break: break-word;
+    /* max-width: 100px; */
+}
+
+.table-wrap .d-flex {
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
