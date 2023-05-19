@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        Soft UI Dashboard by Creative Tim
+        Sistem Pakar Swasembada
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -356,6 +356,7 @@
                                                                             <div class="mb-1 mt-1">
                                                                                 <p
                                                                                     class="text-xs d-flex align-items-center  my-auto">
+                                                                                    %
                                                                                 </p>
                                                                             </div>
                                                                         </div>
@@ -390,7 +391,8 @@
                                                                             <div class="mb-1 mt-1">
                                                                                 <p
                                                                                     class="text-xs d-flex align-items-center  my-auto">
-                                                                                    %</p>
+                                                                                    jam/hari
+                                                                                </p>
                                                                             </div>
                                                                         </div>
 
@@ -421,7 +423,8 @@
                                                                             <div class="mb-1 mt-1">
                                                                                 <p
                                                                                     class="text-xs d-flex align-items-center  my-auto">
-                                                                                    jam/hari
+                                                                                    mm/bulan
+
                                                                                 </p>
                                                                             </div>
                                                                         </div>
@@ -456,7 +459,7 @@
                                                                             <div class="mb-1 mt-1">
                                                                                 <p
                                                                                     class="text-xs d-flex align-items-center  my-auto">
-                                                                                    mm/bulan</p>
+                                                                                </p>
                                                                             </div>
                                                                         </div>
 
@@ -646,7 +649,7 @@
                                         </div>
                                         <div class="col-2 text-center d-flex align-items-center  my-auto">
                                             <div class="mb-1 mt-1">
-                                                <p class="text-xs d-flex align-items-center  my-auto">
+                                                <p class="text-xs d-flex align-items-center  my-auto">%
                                                 </p>
                                             </div>
                                         </div>
@@ -675,7 +678,7 @@
                                             <div class="col-2 text-center d-flex align-items-center  my-auto">
                                                 <div class="mb-1 mt-1">
                                                     <p class="text-xs d-flex align-items-center  my-auto">
-                                                        %</p>
+                                                        jam/hari</p>
                                                 </div>
                                             </div>
 
@@ -699,7 +702,7 @@
                                             <div class="col-2 text-center d-flex align-items-center  my-auto">
                                                 <div class="mb-1 mt-1">
                                                     <p class="text-xs d-flex align-items-center  my-auto">
-                                                        jam/hari
+                                                        mm/bulan
                                                     </p>
                                                 </div>
                                             </div>
@@ -725,7 +728,7 @@
                                             <div class="col-2 text-center d-flex align-items-center  my-auto">
                                                 <div class="mb-1 mt-1">
                                                     <p class="text-xs d-flex align-items-center  my-auto">
-                                                        mm/bulan</p>
+                                                    </p>
                                                 </div>
                                             </div>
 
