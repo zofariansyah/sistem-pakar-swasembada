@@ -65,7 +65,7 @@
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">Database Tanaman
                                             Tersedia</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            $53,000
+                                            {{$jumlahtanaman}}
 
                                         </h5>
                                     </div>
@@ -89,8 +89,8 @@
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">Telah digunakan
                                             sebanyak</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            2,300
-                                            <span class="text-success text-sm font-weight-bolder">+3%</span>
+                                            -
+
                                         </h5>
                                     </div>
                                 </div>
@@ -213,8 +213,8 @@
                                                             <p>PH Tanah</p>
                                                         </div>
                                                         <div class=" mb-1 mt-1 col-6">
-                                                            <input type="number" class="form-control"
-                                                                placeholder="PH Tanah" name="ph_tanah">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="PH Tanah" name="ph_tanah" id="ph_tanah">
                                                         </div>
                                                         <div class=" mb-1 mt-1 col-2">
                                                             <div class="mb-1 mt-1">
@@ -489,6 +489,12 @@
         },
       },
     });
+    </script>
+    <script>
+        // Menerapkan validasi untuk input desimal
+        document.getElementById('ph_tanah').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9.]/g, ''); // Hanya membiarkan angka dan tanda desimal
+        });
     </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;

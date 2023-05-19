@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class HitungTanamanController extends Controller
 {
+    public function index()
+    {
+        $jml = TanamanData::count();
+
+        return view('index', ['jumlahtanaman' => $jml]);
+    }
     public function hitung(Request $request)
     {
 
