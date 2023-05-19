@@ -13,6 +13,7 @@ class HitungTanamanController extends Controller
         $hasilOutputTanaman = [];
         $data_tanaman = TanamanData::all();
         $adaTanaman = false;
+        $tanaman_alternatifDeskripsiFinal = [];
 
 
         $skor_tanaman = [];
@@ -108,6 +109,7 @@ class HitungTanamanController extends Controller
         foreach ($bobotTanaman as $key => $data) {
             if ($bobotTanaman[$key] == 6) {
                 $hasilOutputTanaman[] = $data_tanaman[$key]->nama_tanaman;
+                $tanaman_alternatifDeskripsiFinal[] = $data_tanaman[$key]->deskripsi_tanaman;
                 $adaTanaman = true;
             }
         }
@@ -120,6 +122,7 @@ class HitungTanamanController extends Controller
             $tanaman_alternatif = array();
             $tanaman_alternatif_array = array();
             $tanaman_alternatifNama = array();
+
             foreach ($bobotTanaman as $indeks => $nilai) {
                 if ($nilai == $nilai_terbesar) {
 
@@ -128,6 +131,7 @@ class HitungTanamanController extends Controller
                     $tanaman_alternatifNama[] = $data_tanaman[$indeks]->nama_tanaman;
                 }
             }
+
 
             $tanaman_alternatif_array_mapping = [];
             foreach ($tanaman_alternatif_array as $keya => $valuea) {
@@ -174,13 +178,14 @@ class HitungTanamanController extends Controller
             $adaTanaman = false;
         }
 
-        // dd($adaTanaman);
+
         $data = [
             'tanaman' => $hasilOutputTanaman,
+            'tanaman_deskripsi' => $tanaman_alternatifDeskripsiFinal,
             'adaTanaman' => $adaTanaman,
 
         ];
-
+        // dd($data);
         return view('hasil', $data);
     }
 

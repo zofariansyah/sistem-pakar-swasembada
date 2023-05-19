@@ -28,6 +28,7 @@ Route::middleware(['autentikasi'])->group(function () {
     Route::post('/ubah-tanaman', [DashboardAdminController::class, 'update']);
     Route::delete('/delete-tanaman/{id}', [DashboardAdminController::class, 'destroy'])->name('delete-tanaman');
     Route::post('/tambah-tanaman', [DashboardAdminController::class, 'store']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 Route::middleware(['guest'])->group(function () {
