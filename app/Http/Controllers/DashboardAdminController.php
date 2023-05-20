@@ -14,6 +14,8 @@ class DashboardAdminController extends Controller
     public function index()
     {
         $data_tanaman = TanamanData::get();
+        $jml = TanamanData::count();
+
 
 
         foreach ($data_tanaman as $key => $values) {
@@ -47,7 +49,7 @@ class DashboardAdminController extends Controller
         }
         // dd($datafinal);
 
-        return view('dashboard', ['data_tanaman' => $datafinal]);
+        return view('dashboard', ['data_tanaman' => $datafinal, 'jumlahtanaman' => $jml]);
     }
 
     public function update(Request $request)

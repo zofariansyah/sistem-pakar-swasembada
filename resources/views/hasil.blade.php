@@ -65,7 +65,7 @@
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">Database Tanaman
                                             Tersedia</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            $53,000
+                                            -
 
                                         </h5>
                                     </div>
@@ -89,8 +89,8 @@
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">Telah digunakan
                                             sebanyak</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            2,300
-                                            <span class="text-success text-sm font-weight-bolder">+3%</span>
+                                            -
+
                                         </h5>
                                     </div>
                                 </div>
@@ -164,13 +164,9 @@
                                     </h6>
                                     <p>Kamu bisa menanam tanaman berikut ini</p>
                                     <div class="mt-5">
-                                        @foreach ($tanaman as $item)
+                                        @foreach ($tanaman as $key=>$item)
                                         <p class="text-info">{{ $item }}</p>
-
-                                        @endforeach
-                                        @foreach ($tanaman_deskripsi as $item)
-                                        <p class="text-secondary">{{ $item }}</p>
-
+                                        <p class="text-secondary">{{ $tanaman_deskripsi[$key] }}</p>
                                         @endforeach
 
                                     </div>
