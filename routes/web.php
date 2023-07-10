@@ -3,6 +3,7 @@
 use App\Http\Controllers\HitungTanamanController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\FuzzyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HitungTanamanController::class, 'index']);
+
 
 Route::post('/hitung-tanaman', [HitungTanamanController::class, 'hitung']);
 
@@ -37,3 +38,7 @@ Route::middleware(['guest'])->group(function () {
 Route::get('/hasil', function () {
     return view('hasil');
 });
+
+//new fuzzy
+Route::get('/', [FuzzyController::class, 'index']);
+Route::post('/hitung-fuzzy', [FuzzyController::class, 'hitung']);

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tanaman_datas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_tanaman');
-            $table->text('deskripsi_tanaman');
+        Schema::create('rules_datas', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_rules');
+            $table->unsignedBigInteger('id_tanaman');
+            $table->foreign('id_rules')->references('id')->on('rules_fuzzys')->onDelete('cascade');
+            $table->foreign('id_tanaman')->references('id')->on('tanaman_datas')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tanaman_datas');
+        //
     }
 };

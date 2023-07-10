@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tanaman_datas', function (Blueprint $table) {
+        Schema::create('rules_fuzzys', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_tanaman');
-            $table->text('deskripsi_tanaman');
+            $table->string('kode');
+            $table->enum('ketinggian', ['sangat-rendah', 'rendah', 'sedang', 'tinggi', 'sangat-tinggi']);
+            $table->enum('suhu', ['sangat-sejuk', 'sejuk', 'normal', 'panas', 'sangat-panas']);
+
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tanaman_datas');
+        Schema::dropIfExists('rules_fuzzy');
     }
 };

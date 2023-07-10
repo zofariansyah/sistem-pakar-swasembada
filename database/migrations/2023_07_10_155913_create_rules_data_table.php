@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tanaman_datas', function (Blueprint $table) {
+        Schema::create('rules_data', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_tanaman');
-            $table->text('deskripsi_tanaman');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tanaman_datas');
+        Schema::dropIfExists('rules_data');
     }
 };

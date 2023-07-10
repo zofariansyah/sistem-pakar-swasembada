@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tanaman_datas', function (Blueprint $table) {
+        Schema::create('range_datas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_tanaman');
-            $table->text('deskripsi_tanaman');
-            $table->timestamps();
+            $table->enum('tipe', ['ketinggian', 'suhu']);
+            $table->string('key');
+            $table->enum('value', ['sangat-rendah', 'rendah', 'sedang', 'tinggi', 'sangat-tinggi', 'sangat-sejuk', 'sejuk', 'normal', 'panas', 'sangat-panas']);
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tanaman_datas');
+        Schema::dropIfExists('range_datas');
     }
 };

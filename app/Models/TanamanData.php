@@ -13,11 +13,6 @@ class TanamanData extends Model
     protected $fillable = [
         'nama_tanaman',
         'deskripsi_tanaman',
-        'kelembapan',
-        'intensitas_penyinaran',
-        'curah_hujan',
-        'ph_tanah',
-        'suhu',
-        'ketinggian'
+
     ];
 }
