@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class RulesFuzzy extends Model
 {
     use HasFactory;
+    protected $table = 'rules_fuzzys';
 }
