@@ -65,7 +65,7 @@
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">Database Tanaman
                                             Tersedia</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            {{$jumlahtanaman}}
+                                            -
 
                                         </h5>
                                     </div>
@@ -152,59 +152,41 @@
                 </div>
             </div>
 
-            <div class="row mt-4 align-items-center">
+            <div class="row mt-4">
                 <div class="col-lg-12 mb-lg-0 mb-4">
                     <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row justify-content-md-center my-5">
-                                <div class="col-lg-6">
-                                    <div class="d-flex flex-column h-100">
-                                        <h5 class="font-weight-bolder text-center mb-4">Cari tahu tanaman yang cocok di
-                                            daerahmu dengan memasukkan kriteria berikut</h5>
-                                        <form role="form text-left" method="POST" action="/hitung-fuzzy">
-                                            @csrf
-                                            <div class="row g-2">
-                                                <div class="col-12 ">
-                                                    <div class="row">
-                                                        <div class="mb-2 mt-2 col-4">
-                                                            <p>Ketinggian</p>
-                                                        </div>
-                                                        <div class=" mb-1 mt-1 col-6">
-                                                            <input type="number" class="form-control"
-                                                                placeholder="ketinggian" name="ketinggian" required>
-                                                        </div>
-                                                        <div class=" mb-1 mt-1 col-2">
-                                                            <div class="mb-1 mt-1">
-                                                                <p>mdpl</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="mb-2 mt-2 col-4">
-                                                            <p>Suhu</p>
-                                                        </div>
-                                                        <div class=" mb-1 mt-1 col-6">
-                                                            <input type="number" class="form-control" placeholder="Suhu"
-                                                                name="suhu" required>
-                                                        </div>
-                                                        <div class=" mb-1 mt-1 col-2">
-                                                            <div class="mb-1 mt-1">
-                                                                <p>Celcius</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                        <div class="card-body p-3 text-center">
+                            <div class="m-4">
+                                <div class="text-center">
+                                    @if ($adaTanaman)
+                                    <h2>Tanaman</h2>
+                                    <h6>Berdasarkan data yang kamu berikan, berikut tanaman yang cocok di tempat kamu
+                                    </h6>
+                                    <p>Kamu bisa menanam tanaman berikut ini</p>
+                                    <div class="mt-5">
+                                        @foreach ($tanaman as $key=>$item)
+                                        <p class="text-info">{{ $item['nama_tanaman'] }}</p>
+                                        <p class="text-secondary">{{ $item['deskripsi_tanaman'] }}</p>
+                                        @endforeach
 
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Cari
-                                                    Tanaman</button>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
+                                @else
+                                <div class="text-center">
+                                    <h2>Tanaman</h2>
+                                    <h6>Kami tidak menemukan tanaman yang cocok untuk daerahmu.
+                                    </h6>
+
+                                </div>
+                                @endif
+
+
 
                             </div>
+                            <a href="/">
+                                <button class="btn btn-outline-primary btn-sm mb-0 me-3 text-center">Hitung
+                                    Ulang</a>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -428,12 +410,6 @@
         },
       },
     });
-    </script>
-    <script>
-        // Menerapkan validasi untuk input desimal
-        document.getElementById('ph_tanah').addEventListener('input', function() {
-            this.value = this.value.replace(/[^0-9.]/g, ''); // Hanya membiarkan angka dan tanda desimal
-        });
     </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;

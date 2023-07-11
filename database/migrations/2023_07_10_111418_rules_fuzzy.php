@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('rules_fuzzys', function (Blueprint $table) {
             $table->id();
             $table->string('kode');
-            $table->enum('ketinggian', ['sangat-rendah', 'rendah', 'sedang', 'tinggi', 'sangat-tinggi']);
-            $table->enum('suhu', ['sangat-sejuk', 'sejuk', 'normal', 'panas', 'sangat-panas']);
+            $table->enum('ketinggian', ['sangat-rendah', 'rendah', 'sedang', 'tinggi', 'sangat-tinggi', 'tinggi-sekali']);
+            $table->enum('suhu', ['sangat-sejuk', 'sejuk', 'normal', 'panas', 'sangat-panas', 'panas-sekali']);
 
             $table->timestamps();
         });

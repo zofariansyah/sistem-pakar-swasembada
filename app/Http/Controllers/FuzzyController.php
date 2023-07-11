@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\RangeData;
+use App\Models\RulesData;
 use App\Models\RulesFuzzy;
 use App\Models\TanamanData;
+
 use Illuminate\Http\Request;
 
 class FuzzyController extends Controller
@@ -19,8 +21,8 @@ class FuzzyController extends Controller
     public function hitung(Request $request)
     {
 
-        $ketinggian = 1200;
-        $suhu = 17;
+        $ketinggian = $request['ketinggian'];
+        $suhu =  $request['suhu'];
 
         $ketinggian_max = 1500;
         $ketinggian_low = 10;
@@ -44,14 +46,9 @@ class FuzzyController extends Controller
 
             if ($nilai_kategori_ketinggian > $bawah  && $nilai_kategori_ketinggian <= $atas) {
                 $kategori_ketinggian = $range_data_ketinggian[$key]['value'];
-                $data = [
-                    'bawah' => $bawah,
-                    'atas' => $atas,
-                    'nilai' => $nilai_kategori_ketinggian,
-                    'val' => $kategori_ketinggian
-                ];
             };
         }
+
 
         foreach ($range_data_suhu as $key => $data) {
             $bawah = $this->parsingDataBawah($range_data_suhu[$key]['key']);
@@ -71,6 +68,20 @@ class FuzzyController extends Controller
                 $id_hasil = $rule[$key]['id'];
             }
         }
+
+        $id_tanaman = [];
+        $tanaman = [];
+        $hasil_tanaman = RulesData::where('id_rules', $id_hasil)->get();
+        // dd($hasil_tanaman[0]['id_tanaman']);
+        foreach ($hasil_tanaman as $key => $data) {
+            $id_tanaman[] = $data['id_tanaman'];
+            $tanaman[] = TanamanData::where('id', $data['id_tanaman'])->first();
+        }
+        $adaTanaman = false;
+        if ($tanaman != []) {
+            $adaTanaman = true;
+        }
+        return view('hasil-fuzzy', ['tanaman' => $tanaman, 'adaTanaman' => $adaTanaman]);
     }
 
     public function parsingDataAtas($data)

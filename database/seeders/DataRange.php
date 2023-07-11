@@ -42,6 +42,11 @@ class DataRange extends Seeder
                 'value' => 'sangat-tinggi'
             ],
             [
+                'tipe' => 'ketinggian',
+                'key' => $this->isiData(0.9, 1),
+                'value' => 'tinggi-sekali'
+            ],
+            [
                 'tipe' => 'suhu',
                 'key' => $this->isiData(0.0, 0.1),
                 'value' => 'sangat-sejuk'
@@ -65,6 +70,11 @@ class DataRange extends Seeder
                 'tipe' => 'suhu',
                 'key' => $this->isiData(0.7, 0.9),
                 'value' => 'sangat-panas'
+            ],
+            [
+                'tipe' => 'suhu',
+                'key' => $this->isiData(0.9, 1),
+                'value' => 'panas-sekali'
             ],
         ];
         DB::table('range_datas')->insert($data);

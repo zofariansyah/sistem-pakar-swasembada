@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->enum('tipe', ['ketinggian', 'suhu']);
             $table->string('key');
-            $table->enum('value', ['sangat-rendah', 'rendah', 'sedang', 'tinggi', 'sangat-tinggi', 'sangat-sejuk', 'sejuk', 'normal', 'panas', 'sangat-panas']);
+            $table->enum('value', ['sangat-rendah', 'rendah', 'sedang', 'tinggi', 'sangat-tinggi', 'tinggi-sekali', 'sangat-sejuk', 'sejuk', 'normal', 'panas', 'sangat-panas', 'panas-sekali']);
         });
     }
 
