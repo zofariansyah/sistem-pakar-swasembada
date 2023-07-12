@@ -3,6 +3,7 @@
 use App\Http\Controllers\HitungTanamanController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\DashboardRulesController;
 use App\Http\Controllers\FuzzyController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::post('/hitung-tanaman', [HitungTanamanController::class, 'hitung']);
 
 Route::middleware(['autentikasi'])->group(function () {
     Route::get('/dashboard', [DashboardAdminController::class, 'index']);
+    Route::get('/rules', [DashboardRulesController::class, 'index']);
     Route::post('/ubah-tanaman', [DashboardAdminController::class, 'update']);
     Route::delete('/delete-tanaman/{id}', [DashboardAdminController::class, 'destroy'])->name('delete-tanaman');
     Route::post('/tambah-tanaman', [DashboardAdminController::class, 'store']);

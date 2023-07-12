@@ -28,7 +28,7 @@ class DashboardAdminController extends Controller
         }
         // dd($datafinal);
 
-        return view('dashboard-fuzzy', ['data_tanaman' => $datafinal, 'jumlahtanaman' => $jml]);
+        return view('dashboard.dashboard-fuzzy', ['data_tanaman' => $datafinal, 'jumlahtanaman' => $jml]);
     }
 
     public function update(Request $request)

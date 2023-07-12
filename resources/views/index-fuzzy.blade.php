@@ -170,7 +170,7 @@
                                                             <p>Ketinggian</p>
                                                         </div>
                                                         <div class=" mb-1 mt-1 col-6">
-                                                            <input type="number" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 placeholder="ketinggian" name="ketinggian" required>
                                                         </div>
                                                         <div class=" mb-1 mt-1 col-2">
@@ -184,7 +184,7 @@
                                                             <p>Suhu</p>
                                                         </div>
                                                         <div class=" mb-1 mt-1 col-6">
-                                                            <input type="number" class="form-control" placeholder="Suhu"
+                                                            <input type="text" class="form-control" placeholder="Suhu"
                                                                 name="suhu" required>
                                                         </div>
                                                         <div class=" mb-1 mt-1 col-2">
