@@ -32,8 +32,10 @@ class DashboardRulesController extends Controller
                 'id' => $values['id'],
                 'id_encrypt' => $encodedId,
                 'kode' => $values['kode'],
-                'ketinggian' => $this->convertPenamaan($values['ketinggian']),
-                'suhu' => $this->convertPenamaan($values['suhu']),
+                'ketinggian' => ($values['ketinggian']),
+                'ketinggian_nama' => $this->convertPenamaan($values['ketinggian']),
+                'suhu' => ($values['suhu']),
+                'suhu_nama' => $this->convertPenamaan($values['suhu']),
                 'tanaman' => $tanamanarray
             ];
         }
@@ -71,5 +73,30 @@ class DashboardRulesController extends Controller
             $value = 'Panas Sekali';
         }
         return $value;
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request['id'];
+        $rules = RulesFuzzy::findOrFail($id);
+
+        $rules->kode = $request->kode_tanaman;
+        $rules->ketinggian = $request->ketinggian;
+        $rules->suhu = $request->suhu;
+
+        $rules->save();
+
+        return back()->with('success', 'Data berhasil terupdate');
+    }
+
+    public function destroy($id)
+    {
+        $decodedId = base64_decode($id);
+        $decryptedId = Crypt::decryptString($decodedId);
+
+        $tanaman = RulesFuzzy::findOrFail($decryptedId);
+        $tanaman->delete();
+
+        return back()->with('success', 'Data berhasil dihapus');
     }
 }

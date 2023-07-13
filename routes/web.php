@@ -27,7 +27,9 @@ Route::middleware(['autentikasi'])->group(function () {
     Route::get('/dashboard', [DashboardAdminController::class, 'index']);
     Route::get('/rules', [DashboardRulesController::class, 'index']);
     Route::post('/ubah-tanaman', [DashboardAdminController::class, 'update']);
+    Route::post('/ubah-rules', [DashboardRulesController::class, 'update']);
     Route::delete('/delete-tanaman/{id}', [DashboardAdminController::class, 'destroy'])->name('delete-tanaman');
+    Route::delete('/delete-rules/{id}', [DashboardRulesController::class, 'destroy'])->name('delete-rules');
     Route::post('/tambah-tanaman', [DashboardAdminController::class, 'store']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });

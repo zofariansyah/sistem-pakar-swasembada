@@ -18,64 +18,55 @@ class DataRange extends Seeder
         $data = [
             [
                 'tipe' => 'ketinggian',
-                'key' => $this->isiData(0.0, 0.1),
+                'key' => $this->isiData(0.0, 0.06),
                 'value' => 'sangat-rendah'
             ],
             [
                 'tipe' => 'ketinggian',
-                'key' => $this->isiData(0.1, 0.3),
+                'key' => $this->isiData(0.06, 0.16),
                 'value' => 'rendah'
             ],
             [
                 'tipe' => 'ketinggian',
-                'key' => $this->isiData(0.3, 0.5),
+                'key' => $this->isiData(0.16, 0.32),
                 'value' => 'sedang'
             ],
             [
                 'tipe' => 'ketinggian',
-                'key' => $this->isiData(0.5, 0.7),
+                'key' => $this->isiData(0.32, 0.66),
                 'value' => 'tinggi'
             ],
             [
                 'tipe' => 'ketinggian',
-                'key' => $this->isiData(0.7, 0.9),
+                'key' => $this->isiData(0.66, 1),
                 'value' => 'sangat-tinggi'
             ],
             [
-                'tipe' => 'ketinggian',
-                'key' => $this->isiData(0.9, 1),
-                'value' => 'tinggi-sekali'
-            ],
-            [
                 'tipe' => 'suhu',
-                'key' => $this->isiData(0.0, 0.1),
+                'key' => $this->isiData(0.0, 0.33),
                 'value' => 'sangat-sejuk'
             ],
             [
                 'tipe' => 'suhu',
-                'key' => $this->isiData(0.1, 0.3),
+                'key' => $this->isiData(0.33, 0.47),
                 'value' => 'sejuk'
             ],
             [
                 'tipe' => 'suhu',
-                'key' => $this->isiData(0.3, 0.5),
+                'key' => $this->isiData(0.47, 0.6),
                 'value' => 'normal'
             ],
             [
                 'tipe' => 'suhu',
-                'key' => $this->isiData(0.5, 0.7),
+                'key' => $this->isiData(0.6, 0.8),
                 'value' => 'panas'
             ],
             [
                 'tipe' => 'suhu',
-                'key' => $this->isiData(0.7, 0.9),
+                'key' => $this->isiData(0.8, 1),
                 'value' => 'sangat-panas'
             ],
-            [
-                'tipe' => 'suhu',
-                'key' => $this->isiData(0.9, 1),
-                'value' => 'panas-sekali'
-            ],
+
         ];
         DB::table('range_datas')->insert($data);
     }

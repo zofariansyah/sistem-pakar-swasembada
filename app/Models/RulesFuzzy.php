@@ -9,4 +9,10 @@ class RulesFuzzy extends Model
 {
     use HasFactory;
     protected $table = 'rules_fuzzys';
+    protected $fillable = [
+        'kode',
+        'ketinggian',
+        'suhu',
+
+    ];
 }

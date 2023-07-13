@@ -198,14 +198,14 @@
                                             <td class="align-middle text-center p-3">
 
                                                 <p class="wrap-column text-xs text-secondary mb-0  ">
-                                                    {{$data['ketinggian']}}
+                                                    {{$data['ketinggian_nama']}}
                                                 </p>
 
                                             </td>
                                             <td class="align-middle text-center p-3">
 
                                                 <p class="wrap-column text-xs text-secondary mb-0  ">
-                                                    {{$data['suhu']}}
+                                                    {{$data['suhu_nama']}}
                                                 </p>
 
                                             </td>
@@ -256,8 +256,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batal</button>
-                                                        <form
-                                                            action="{{ route('delete-tanaman', $data['id_encrypt']) }}"
+                                                        <form action="{{ route('delete-rules', $data['id_encrypt']) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -270,7 +269,7 @@
 
                                         <div class="modal" id="edit{{ $data['id'] }}">
                                             <div class="modal-dialog">
-                                                <form role="form text-left" method="POST" action="/ubah-tanaman">
+                                                <form role="form text-left" method="POST" action="/ubah-rules">
                                                     <div class="modal-content">
                                                         <!-- Konten modal di sini -->
                                                         <div class="modal-header">
@@ -292,24 +291,59 @@
                                                                         class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
                                                                         Kode Tanaman</p>
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Nama Tanaman" name="nama_tanaman"
+                                                                        placeholder="Kode Tanaman" name="kode_tanaman"
                                                                         value="{{ $data['kode'] }}">
                                                                 </div>
                                                                 <div class="mb-1 mt-1">
                                                                     <p
                                                                         class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
                                                                         Ketinggian</p>
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Deskripsi" name="ketinggian">{{
-                                                                    $data['ketinggian'] }}</textarea>
+                                                                    <select class="form-control" name="ketinggian">
+                                                                        <option value="" disabled>Pilih tingkat</option>
+                                                                        <option value="sangat-rendah" {{
+                                                                            $data['ketinggian']=='sangat-rendah'
+                                                                            ? 'selected' : '' }}>
+                                                                            Sangat Rendah
+                                                                        </option>
+                                                                        <option value="rendah" {{
+                                                                            $data['ketinggian']=='rendah' ? 'selected'
+                                                                            : '' }}>Rendah</option>
+                                                                        <option value="sedang" {{
+                                                                            $data['ketinggian']=='sedang' ? 'selected'
+                                                                            : '' }}>Sedang</option>
+                                                                        <option value="tinggi" {{
+                                                                            $data['ketinggian']=='tinggi' ? 'selected'
+                                                                            : '' }}>Tinggi</option>
+                                                                        <option value="sangat-tinggi" {{
+                                                                            $data['ketinggian']=='sangat-tinggi'
+                                                                            ? 'selected' : '' }}>Sangat Tinggi
+                                                                        </option>
+                                                                    </select>
                                                                 </div>
                                                                 <div class="mb-1 mt-1">
                                                                     <p
                                                                         class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
                                                                         Suhu</p>
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Deskripsi" name="Suhu">{{
-                                                                    $data['ketinggian'] }}</textarea>
+                                                                    <select class="form-control" name="suhu">
+                                                                        <option value="" disabled>Pilih tingkat</option>
+
+                                                                        <option value="sangat-sejuk" {{
+                                                                            $data['suhu']=='sangat-sejuk' ? 'selected'
+                                                                            : '' }}>
+                                                                            Sangat Sejuk
+                                                                        </option>
+                                                                        <option value="sejuk" {{ $data['suhu']=='sejuk'
+                                                                            ? 'selected' : '' }}>Sejuk</option>
+                                                                        <option value="normal" {{
+                                                                            $data['suhu']=='normal' ? 'selected' : ''
+                                                                            }}>Normal</option>
+                                                                        <option value="panas" {{ $data['suhu']=='panas'
+                                                                            ? 'selected' : '' }}>Panas</option>
+                                                                        <option value="sangat-panas" {{
+                                                                            $data['suhu']=='sangat-panas' ? 'selected'
+                                                                            : '' }}>Sangat Panas
+                                                                        </option>
+                                                                    </select>
                                                                 </div>
                                                                 <div class="mb-1 mt-1">
                                                                     <p
@@ -317,7 +351,8 @@
                                                                         Tanaman</p>
                                                                     <div id="tanaman{{ $data['id'] }}">
                                                                         @foreach($data['tanaman'] as $datas)
-                                                                        <select name="" id="" class="form-control mb-2">
+                                                                        <select name="tanaman" id=""
+                                                                            class="form-control mb-2">
 
                                                                             @foreach ($data_tanaman as $key => $value)
 
@@ -418,29 +453,62 @@
 
                         <div class="row ">
                             <div class="mb-1 mt-1">
-
                                 <p class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
-                                    Nama Tanaman</p>
-                                <input type="text" class="form-control" placeholder="Nama Tanaman" name="nama_tanaman">
-
-
-
+                                    Kode Tanaman</p>
+                                <input type="text" class="form-control" placeholder="Kode Tanaman" name="kode_tanaman"
+                                    value="">
                             </div>
                             <div class="mb-1 mt-1">
-
                                 <p class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
-                                    Deskripsi Tanaman</p>
-                                <textarea type="" class="form-control" placeholder="Deskripsi"
-                                    name="deskripsi_tanaman"></textarea>
+                                    Ketinggian</p>
+                                <select class="form-control" name="ketinggian">
+                                    <option value="" disabled>Pilih tingkat</option>
+                                    <option value="sangat-rendah">
+                                        Sangat Rendah
+                                    </option>
+                                    <option value="rendah">Rendah
+                                    </option>
+                                    <option value="sedang">Sedang
+                                    </option>
+                                    <option value="tinggi">Tinggi
+                                    </option>
+                                    <option value="sangat-tinggi">Sangat Tinggi
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-1 mt-1">
+                                <p class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                    Suhu</p>
+                                <select class="form-control" name="suhu">
+                                    <option value="" disabled>Pilih tingkat</option>
 
+                                    <option value="sangat-sejuk">
+                                        Sangat Sejuk
+                                    </option>
+                                    <option value="sejuk">Sejuk</option>
+                                    <option value="normal">Normal
+                                    </option>
+                                    <option value="panas">Panas</option>
+                                    <option value="sangat-panas">
+                                        Sangat Panas
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-1 mt-1">
+                                <p class="text-xs mb-2 mt-2 d-flex align-items-center  my-auto">
+                                    Tanaman</p>
+                                <div id="tanaman">
 
-
+                                </div>
+                                <button id="tambahtanaman{{ $data['id'] }}" type="button" class="btn btn-secondary"
+                                    data-field-count="{{ count($data['tanaman']) }}">Tambah
+                                    Field</button>
                             </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                <button type="submit" class="btn btn-primary">Tambah</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
             </form>
         </div>

@@ -16,6 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(DataTanaman::class);
         $this->call(DataRule::class);
-        // $this->call(DataRange::class);
+        $this->call(DataRange::class);
     }
 }
